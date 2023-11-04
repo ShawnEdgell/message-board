@@ -1,0 +1,112 @@
+/* Reset some basic elements */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+  background-color: #eaeaea; /* Light grey background */
+  font-family: 'Courier New', Courier, monospace;
+  color: #333;
+  padding: 2rem;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+strong {
+  font-weight: bold; /* or 700 to enforce it */
+}
+
+button, input, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}
+
+/* Style for the buttons */
+button {
+  background-color: #f2f2f2;
+  border: 3px solid #333;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border-radius: 8px; /* Rounded edges */
+  margin-bottom: 1rem;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+/* Style for form elements */
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border: 2px solid #333; /* Strong border */
+  border-radius: 8px; /* Rounded edges */
+  background-color: #fff;
+}
+
+/* Style for the message container */
+.message-container {
+  margin-bottom: 2rem;
+  position: relative;
+}
+
+/* Stylish separator line */
+.message-container + .message-container::before {
+  content: '';
+  position: absolute;
+  top: -1rem; /* Position it above the current message */
+  left: 0;
+  right: 0;
+  height: 2px; /* Line thickness */
+  background-color: #333; /* Line color */
+  opacity: 25%;
+}
+
+
+/* Responsive media query */
+@media (max-width: 768px) {
+  body {
+    padding: 1rem;
+  }
+
+  input[type="text"],
+  textarea {
+    padding: 0.5rem;
+  }
+}

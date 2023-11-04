@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Message Board</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
+
+</head>
+<body>
+    <h1>Welcome to the Message Board</h1>
+    <% if(messages.length > 0) { %>
+      <% messages.forEach(function(message) { %>
+          <div class="message-container">
+              <p><strong><%= message.user %>:</strong> <%= message.text %></p>
+              <p>Posted on: <%= message.added.toDateString() %></p>
+          </div>
+      <% }) %>
+  <% } else { %>
+      <p>No messages yet.</p>
+  <% } %>
+    <button onclick="location.href='/new'">Post a New Message</button>
+</body>
+</html>
