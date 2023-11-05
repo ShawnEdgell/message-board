@@ -4,10 +4,32 @@ var createError = require('http-errors');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var { MongoClient } = require('mongodb'); // Include MongoDB client
 
-// Update this line to require the 'index' router from the 'routes' directory
+// MongoDB setup
+var mongoUri = process.env.MONGO_URI; // Use environment variable for MongoDB URI
+var mongoClient = new MongoClient(mongoUri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+async function connectToMongo() {
+  try {
+    await mongoClient.connect();
+    console.log('Connected to MongoDB');
+    var db = mongoClient.db();
+    // Make collections globally available
+    global.messagesCollection = db.collection('messages');
+  } catch (error) {
+    console.error('Error connecting to MongoDB', error);
+  }
+}
+
+// Connect to MongoDB
+connectToMongo();
+
+// The rest of your existing app.js code...
 var indexRouter = require('./routes/index');
-
 var app = express();
 
 // Set up view engine
