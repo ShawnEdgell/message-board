@@ -5,13 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
 
-var indexRouter = require('./views/index.ejs');
+// Update this line to require the 'index' router from the 'routes' directory
+var indexRouter = require('./routes/index');
 
 var app = express();
 
 // Set up view engine
 app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs'); // Update this line to use EJS
+app.set('view engine', 'ejs'); // Confirming we're using EJS as our view engine
 
 // Middlewares
 app.use(bodyParser.urlencoded({ extended: true }));
